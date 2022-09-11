@@ -1,0 +1,30 @@
+[package]
+name = "angelmarkup"
+version = "1.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["Angel Dollface"]
+description= "Simple data storage with no drama."
+homepage = "https://github.com/angeldollface/angelmarkup"
+repository = "https://github.com/angeldollface/angelmarkup"
+documentation = "https://github.com/angeldollface/angelmarkup"
+readme = "README.markdown"
+keywords = ["cli"]
+categories = ["command-line-utilities"]
+exclude = ["/.github", "sample"]
+
+[[bin]]
+name = "amlc"
+path = "src/main.rs"
+
+[dependencies]
+regex = "1.5.5"
+cleasy = "1.0.0"
+colored = "2.0.0"
+serde_json = "1.0.79"
+
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1

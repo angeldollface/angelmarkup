@@ -1,0 +1,74 @@
+on: [push]
+name: Angel Markup CI
+jobs:
+  build_and_test:
+    name: Angel Markup CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
+      - uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: example
+      - name: Compile AML to JSON (short).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -i sample/sample.aml -o sample.json
+      - name: Compile AML to JSON (long).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --inf sample/sample.aml --ouf sample.json --jsn
+      - name: Compile AML to JSON (short).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -i sample/sample.aml -o sample.json -j
+      - name: Compile AML to YAML (long).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --inf sample/sample.aml --ouf sample.yml --yml
+      - name: Compile AML to YAML (short).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -i sample/sample.aml -o sample.yml -y
+      - name: Compile AML to TOML (long).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --inf sample/sample.aml --ouf sample.toml --tml
+      - name: Compile AML to TOML (short).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -i sample/sample.aml -o sample.toml -t
+      - name: Invoke the version flag (long).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --version
+      - name: Invoke the version flag (short).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -v
+      - name: Invoke the help flag (short).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -h
+      - name: Invoke the help flag (long).
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --help
