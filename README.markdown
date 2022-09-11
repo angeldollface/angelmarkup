@@ -114,7 +114,7 @@ To refer to ***ANGELMARKUP***'s functions and structs, please click [here](https
 
 ### Version 1.2.0
 
-- The Doll Update
+- The Doll Update.
 - Updated, published, and uploaded under my new name.
 
 ## NOTE
