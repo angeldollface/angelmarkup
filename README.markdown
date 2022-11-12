@@ -119,5 +119,5 @@ To refer to ***ANGELMARKUP***'s functions and structs, please click [here](https
 
 ## NOTE
 
-- *Angel Markuo Language :performing_arts: :guitar: :ribbon:* by Alexander Abraham :black_heart: a.k.a. *"Angel Dollface" :dolls: :ribbon:*
+- *Angel Markup Language :performing_arts: :guitar: :ribbon:* by Alexander Abraham :black_heart: a.k.a. *"Angel Dollface" :dolls: :ribbon:*
 - Licensed under the MIT license.
